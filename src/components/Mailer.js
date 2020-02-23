@@ -1,0 +1,38 @@
+import React, { Component } from "react";
+import EmailTable from "./EmailTable";
+
+export default class Mailer extends Component {
+  render() {
+    let emails = [
+      {
+        email: "google@google.com",
+        user_name: "GOOGLE",
+        user_next_rank_id: 3,
+        reviews_left_to_uprank: 4
+      },
+      {
+        email: "google@google.com",
+        user_name: "GOOGLE",
+        user_next_rank_id: 3,
+        reviews_left_to_uprank: 4
+      },
+      {
+        email: "google@google.com",
+        user_name: "GOOGLE",
+        user_next_rank_id: 3,
+        reviews_left_to_uprank: 4
+      }
+    ];
+
+    return (
+      <div>
+        <h1>Mailer</h1>
+        <input type="file" id="myfile" name="myfile"></input>
+        <br />
+        <input type="file" id="myfile" name="myfile"></input>
+        <EmailTable emailsList={emails}/>
+        <button>ส่งเมล</button>
+      </div>
+    );
+  }
+}
