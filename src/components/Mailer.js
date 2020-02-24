@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EmailTable from "./EmailTable";
+import './components.css';
 
 export default class Mailer extends Component {
   render() {
@@ -27,11 +28,11 @@ export default class Mailer extends Component {
     return (
       <div>
         <h1>Mailer</h1>
-        <input type="file" id="myfile" name="myfile"></input>
+        <input type="file" id="myfile" name="myfile" />
         <br />
-        <input type="file" id="myfile" name="myfile"></input>
+        <input type="file" id="myfile" name="myfile" />
         <EmailTable emailsList={emails}/>
-        <button>ส่งเมล</button>
+        <button className="Mailer-Button">ส่งเมล</button>
       </div>
     );
   }

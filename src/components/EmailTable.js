@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './components.css';
 
 export default class EmailTable extends Component {
   render() {
@@ -6,9 +7,9 @@ export default class EmailTable extends Component {
     return (
       <table>
         <tr>
-          <td>Cell A</td>
-          <td>Cell B</td>
-          <td>Cell C</td>
+          <td>อีเมล</td>
+          <td>ข้อความ</td>
+          <td>สถานะ</td>
         </tr>
         {this.props.emailsList.map((element)=>(
           <tr>
