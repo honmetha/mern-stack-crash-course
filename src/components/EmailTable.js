@@ -3,23 +3,29 @@ import './components.css';
 
 export default class EmailTable extends Component {
   render() {
-    
+    let { emails } = this.props;
     return (
-      <table>
-        <tr>
-          <td>อีเมล</td>
-          <td>ข้อความ</td>
-          <td>สถานะ</td>
-        </tr>
-        {this.props.emailsList.map((element)=>(
+      <div className="emailtable-centerdiv">
+        <table className="emailtable-table">
+          <thead>
           <tr>
-            <td>{element.email}</td>
-            <td>{element.user_name}</td>
-            <td>READY</td>
+            <td>อีเมล</td>
+            <td>ข้อความ</td>
+            <td>สถานะ</td>
           </tr>
-        ))
-        }
-      </table>
+          </thead>
+          <tbody>
+          {this.props.emailsList.map((element, index)=>(
+            <tr key={index}>
+              <td>{element[0]}</td>
+              <td>{element[1]}</td>
+              <td>READY</td>
+            </tr>
+          ))
+          }
+          </tbody>
+        </table>
+      </div>
     )
   }
 }
