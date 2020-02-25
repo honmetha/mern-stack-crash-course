@@ -6,7 +6,7 @@ export default class Mailer extends Component {
   state = {
     emails: []
   };
-  handleFileSelect = e => {
+  handleEmailsSelect = e => {
     let files = e.target.files;
     let reader = new FileReader();
     reader.readAsText(files[0]);
@@ -24,6 +24,9 @@ export default class Mailer extends Component {
       alert("read email error");
     };
   }
+  handleRanksSelect = e => {
+    let rankfile = e.target.rankfile;
+  };
 
   render() {
     let { emails } = this.state;
@@ -36,13 +39,14 @@ export default class Mailer extends Component {
             type="file"
             id="myfile"
             name="myfile"
-            onChange={this.handleFileSelect}
+            onChange={this.handleEmailsSelect}
           />
           <br />
           <input
             type="file"
             id="myfile"
             name="myfile"
+            onChange={this.handleRanksSelect}
           />
           <EmailTable emailsList={emails} />
           <button className="Mailer-Button">ส่งเมล</button>
