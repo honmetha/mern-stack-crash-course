@@ -10,7 +10,7 @@
   height: 100%;
   line-height: 50px; 
   color: black;
-  text-align: center; 
+  text-align: center;
 }
 
 .Mailer-Button {
@@ -18,8 +18,8 @@
   border-radius: 2px;
   border: none;
   color: white;
-  width: 12em;
-  height: 2.5em;
+  width: 15em;
+  height: 4em;
 }
 
 .emailtable-centerdiv {
@@ -30,4 +30,6 @@
 
 .emailtable-table {
   width: 100%;
+  line-height: 2;
+  text-align: left;
 }
