@@ -1,5 +1,7 @@
 # MERN Stack Crash Course
 
+<img src="./images/overview.png" alt="MERN Overview">
+
 ## 📖 MERN Stack Chapters
 
 1. What is the MERN Stack?
