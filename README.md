@@ -1,6 +1,6 @@
 # MERN Stack Crash Course
 
-<img src="./images/overview.png" alt="MERN Overview">
+<img src="./images/mern-stack-overview.png" alt="MERN Stack Overview">
 
 ## 📖 MERN Stack Chapters
 
