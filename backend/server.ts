@@ -1,7 +1,7 @@
-const express = require("express");
+import express, { Express } from "express";
 
 // express app
-const app = express();
+const app: Express = express();
 
 // listen for requests
 app.listen(4000, () => {
