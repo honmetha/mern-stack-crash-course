@@ -1,11 +1,11 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
+import workoutRoutes from "./routes/workouts";
 
 dotenv.config();
 
 // express app
 const app: Express = express();
-const workoutRoutes = require("./routes/workouts");
 const port = process.env.PORT;
 
 // middleware
