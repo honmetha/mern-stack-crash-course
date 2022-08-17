@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-const Workout = require("../models/workoutModel");
+import Workout from "../models/workoutModel";
 
 const router = express.Router();
 
