@@ -15,8 +15,10 @@ const Home = () => {
 
   React.useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("http://localhost:3000/api/workouts");
+      const response = await fetch("http://localhost:4000/api/workouts");
       const json = await response.json();
+
+      console.log("json", json);
 
       if (response.ok) {
         setWorkouts(json);
