@@ -1,4 +1,10 @@
-const WorkoutDetails = ({ workout }: any) => {
+import { IWorkout } from "../types";
+
+interface IWorkoutDetails {
+  workout: IWorkout;
+}
+
+const WorkoutDetails = ({ workout }: IWorkoutDetails) => {
   return (
     <div className="workout-details">
       <h4>{workout.title}</h4>

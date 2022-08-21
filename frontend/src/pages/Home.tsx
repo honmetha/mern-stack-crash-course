@@ -1,19 +1,10 @@
 import * as React from "react";
 
 import WorkoutDetails from "../components/WorkoutDetails";
-
-interface IWorkout {
-  _id: String;
-  title: String;
-  reps: Number;
-  load: Number;
-  createdAt: Date;
-  updatedAt: Date;
-  __v: Number;
-}
+import { IWorkout } from "../types";
 
 const Home = () => {
-  const [workouts, setWorkouts] = React.useState<any>(null);
+  const [workouts, setWorkouts] = React.useState<IWorkout[] | null>(null);
 
   React.useEffect(() => {
     const fetchWorkouts = async () => {
@@ -32,7 +23,7 @@ const Home = () => {
     <div className="home">
       <div className="workouts">
         {workouts &&
-          workouts.map((workout: any) => (
+          workouts.map((workout: IWorkout) => (
             <WorkoutDetails key={workout._id} workout={workout} />
           ))}
       </div>
