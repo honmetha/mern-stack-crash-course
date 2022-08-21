@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import WorkoutDetails from "../components/WorkoutDetails";
+
 interface IWorkout {
   _id: String;
   title: String;
@@ -15,10 +17,8 @@ const Home = () => {
 
   React.useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("http://localhost:4000/api/workouts");
+      const response = await fetch("/api/workouts");
       const json = await response.json();
-
-      console.log("json", json);
 
       if (response.ok) {
         setWorkouts(json);
@@ -33,7 +33,7 @@ const Home = () => {
       <div className="workouts">
         {workouts &&
           workouts.map((workout: any) => (
-            <p key={workout._id}>{workout.title}</p>
+            <WorkoutDetails key={workout._id} workout={workout} />
           ))}
       </div>
     </div>
