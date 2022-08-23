@@ -6,7 +6,7 @@ const WorkoutForm = () => {
   const [reps, setReps] = React.useState("");
   const [error, setError] = React.useState(null);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const workout = { title, load, reps };
