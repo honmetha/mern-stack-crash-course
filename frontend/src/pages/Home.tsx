@@ -1,11 +1,12 @@
 import * as React from "react";
 
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { IWorkout } from "../types";
 
 const Home = () => {
-  const [workouts, setWorkouts] = React.useState<IWorkout[] | null>(null);
+  const { workouts, dispatch } = useWorkoutsContext();
 
   React.useEffect(() => {
     const fetchWorkouts = async () => {
@@ -13,7 +14,7 @@ const Home = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setWorkouts(json);
+        dispatch({ type: "SET_WORKOUTS", payload: json });
       }
     };
 
