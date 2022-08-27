@@ -9,15 +9,20 @@ interface WorkoutAction {
 
 interface WorkoutContextInterface {
   workouts: IWorkout[];
-  dispatch: React.Dispatch<{ type: string; payload: JSON }>;
+  dispatch: React.Dispatch<WorkoutAction>;
 }
 
 interface IWorkoutsContextProvider {
   children: React.ReactNode;
 }
 
+const initialState = {
+  workouts: [],
+  dispatch: () => {},
+};
+
 export const WorkoutsContext =
-  React.createContext<WorkoutContextInterface | null>(null);
+  React.createContext<WorkoutContextInterface>(initialState);
 
 // fix typescript type
 export const workoutsReducer = (state: any, action: WorkoutAction) => {
@@ -28,7 +33,7 @@ export const workoutsReducer = (state: any, action: WorkoutAction) => {
       };
     case "CREATE_WORKOUT":
       return {
-        workouts: [action.payload, ...state],
+        workouts: [action.payload, ...state.workouts],
       };
     default:
       return state;
@@ -38,9 +43,7 @@ export const workoutsReducer = (state: any, action: WorkoutAction) => {
 export const WorkoutsContextProvider = ({
   children,
 }: IWorkoutsContextProvider) => {
-  const [state, dispatch] = React.useReducer(workoutsReducer, {
-    workouts: null,
-  });
+  const [state, dispatch] = React.useReducer(workoutsReducer, { workouts: [] });
 
   return (
     <WorkoutsContext.Provider value={{ ...state, dispatch }}>

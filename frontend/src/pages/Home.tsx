@@ -3,7 +3,7 @@ import * as React from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
-import { IWorkout } from "../types";
+import { IWorkout, WorkoutKind } from "../types";
 
 const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext();
@@ -14,7 +14,7 @@ const Home = () => {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_WORKOUTS", payload: json });
+        dispatch({ type: WorkoutKind.SET_WORKOUTS, payload: json });
       }
     };
 

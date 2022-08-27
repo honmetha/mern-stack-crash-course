@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { WorkoutKind } from "../types/index";
 
 const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext();
@@ -31,7 +32,7 @@ const WorkoutForm = () => {
       setReps("");
       setError(null);
       console.log("new workout added");
-      dispatch({ type: "CREATE_WORKOUT", payload: json });
+      dispatch({ type: WorkoutKind.CREATE_WORKOUT, payload: json });
     }
   };
 
