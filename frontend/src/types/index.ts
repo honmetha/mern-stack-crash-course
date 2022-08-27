@@ -7,3 +7,8 @@ export interface IWorkout {
   updatedAt: string;
   __v: number;
 }
+
+export enum WorkoutKind {
+  SET_WORKOUTS = "SET_WORKOUTS",
+  CREATE_WORKOUT = "CREATE_WORKOUT",
+}

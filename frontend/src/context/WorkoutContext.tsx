@@ -1,14 +1,26 @@
 import * as React from "react";
 
+import { IWorkout, WorkoutKind } from "../types";
+
+interface WorkoutAction {
+  type: WorkoutKind;
+  payload: IWorkout;
+}
+
+interface WorkoutContextInterface {
+  workouts: IWorkout[];
+  dispatch: React.Dispatch<{ type: string; payload: JSON }>;
+}
+
 interface IWorkoutsContextProvider {
   children: React.ReactNode;
 }
 
-// fix typescript type
-export const WorkoutsContext = React.createContext<any>(null);
+export const WorkoutsContext =
+  React.createContext<WorkoutContextInterface | null>(null);
 
 // fix typescript type
-export const workoutsReducer = (state: any, action: any) => {
+export const workoutsReducer = (state: any, action: WorkoutAction) => {
   switch (action.type) {
     case "SET_WORKOUTS":
       return {
