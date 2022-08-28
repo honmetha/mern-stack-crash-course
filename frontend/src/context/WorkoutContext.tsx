@@ -1,13 +1,8 @@
 import * as React from "react";
 
-import { IWorkout, WorkoutKind } from "../types";
+import { IWorkout, WorkoutKind, WorkoutAction } from "../types";
 
-interface WorkoutAction {
-  type: WorkoutKind;
-  payload: IWorkout;
-}
-
-interface WorkoutContextInterface {
+interface IWorkoutContext {
   workouts: IWorkout[];
   dispatch: React.Dispatch<WorkoutAction>;
 }
@@ -22,10 +17,12 @@ const initialState = {
 };
 
 export const WorkoutsContext =
-  React.createContext<WorkoutContextInterface>(initialState);
+  React.createContext<IWorkoutContext>(initialState);
 
-// fix typescript type
-export const workoutsReducer = (state: any, action: WorkoutAction) => {
+export const workoutsReducer = (
+  state: { workouts: IWorkout[] },
+  action: WorkoutAction
+) => {
   switch (action.type) {
     case WorkoutKind.SET_WORKOUTS:
       return {

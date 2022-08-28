@@ -13,3 +13,8 @@ export enum WorkoutKind {
   CREATE_WORKOUT = "CREATE_WORKOUT",
   DELETE_WORKOUT = "DELETE_WORKOUT",
 }
+
+export type WorkoutAction =
+  | { type: WorkoutKind.SET_WORKOUTS; payload: IWorkout[] }
+  | { type: WorkoutKind.CREATE_WORKOUT; payload: IWorkout }
+  | { type: WorkoutKind.DELETE_WORKOUT; payload: IWorkout };
