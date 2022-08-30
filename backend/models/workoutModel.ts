@@ -1,9 +1,9 @@
 import { Schema, model } from "mongoose";
 
 interface IWorkout {
-  title: String;
-  reps: Number;
-  load: Number;
+  title: string;
+  reps: number;
+  load: number;
 }
 
 const workoutSchema = new Schema<IWorkout>(

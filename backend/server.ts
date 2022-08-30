@@ -1,6 +1,7 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import workoutRoutes from "./routes/workouts";
+import userRoutes from "./routes/user";
 import mongoose from "mongoose";
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 // routes
 app.use("/api/workouts", workoutRoutes);
+app.use("/api/user", userRoutes);
 
 // connect to db
 mongoose
