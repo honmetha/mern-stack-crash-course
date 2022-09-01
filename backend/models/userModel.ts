@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model, Model } from "mongoose";
 import bcrypt from "bcrypt";
 
 interface IUserSchema {
@@ -11,6 +11,10 @@ interface IUserSchema {
     type: string;
     required: boolean;
   };
+}
+
+interface UserModelInterface extends Model<IUserSchema> {
+  signup: any;
 }
 
 const userSchema = new Schema<IUserSchema>({
@@ -38,4 +42,8 @@ userSchema.statics.signup = async function (email, password) {
   return user;
 };
 
-export default model("User", userSchema);
+const User: UserModelInterface = mongoose.model<
+  IUserSchema,
+  UserModelInterface
+>("User", userSchema);
+export default User;

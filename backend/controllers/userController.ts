@@ -15,7 +15,7 @@ export const signupUser = async (req: Request, res: Response) => {
     const user = await User.signup(email, password);
 
     res.status(200).json({ email, user });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).json({ error: error.message });
   }
 
