@@ -14,7 +14,7 @@ interface IUserSchema {
 }
 
 interface UserModelInterface extends Model<IUserSchema> {
-  signup: any;
+  signup: (email: string, password: string) => IUserSchema;
 }
 
 const userSchema = new Schema<IUserSchema>({
