@@ -1,6 +1,7 @@
 # MERN Stack Crash Course
 
 <img src="./frontend/public/mern-stack-overview.png" alt="MERN Stack Overview">
+<img src="./frontend/public/jwt.png" alt="JASON Web Tokens">
 
 ## 📖 MERN Stack Chapters
 
