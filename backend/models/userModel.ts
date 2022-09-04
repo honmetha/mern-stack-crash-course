@@ -14,8 +14,15 @@ interface IUserSchema {
   };
 }
 
+interface IUser {
+  email: string;
+  password: string;
+  _id: string;
+  _v: number;
+}
+
 interface IUserModel extends Model<IUserSchema> {
-  signup: (email: string, password: string) => IUserSchema;
+  signup: (email: string, password: string) => IUser;
 }
 
 const userSchema = new Schema<IUserSchema>({
@@ -28,7 +35,7 @@ const userSchema = new Schema<IUserSchema>({
 });
 
 // static signup method
-userSchema.statics.signup = async function (email, password) {
+userSchema.statics.signup = async function (email, password): Promise<IUser> {
   // validation
   if (!email || !password) {
     throw Error("All fields must be filled");
