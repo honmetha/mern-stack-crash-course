@@ -18,3 +18,19 @@ export type WorkoutAction =
   | { type: WorkoutKind.SET_WORKOUTS; payload: IWorkout[] }
   | { type: WorkoutKind.CREATE_WORKOUT; payload: IWorkout }
   | { type: WorkoutKind.DELETE_WORKOUT; payload: IWorkout };
+
+export interface IUser {
+  email: string;
+  password: string;
+  _id: string;
+  _v: number;
+}
+
+export enum AuthKind {
+  LOGIN = "LOGIN",
+  LOGOUT = "LOGOUT",
+}
+
+export type AuthAction =
+  | { type: AuthKind.LOGIN; payload: IUser }
+  | { type: AuthKind.LOGOUT; payload: IUser };
