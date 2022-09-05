@@ -8,7 +8,7 @@ const createToken = (_id: string) => {
 };
 
 // login user
-export const loginUser = async (req: Request, res: Response) => {
+export const loginUser = async (req: Request, res: Response): Promise<void> => {
   const { email, password } = req.body;
 
   try {
@@ -24,7 +24,10 @@ export const loginUser = async (req: Request, res: Response) => {
 };
 
 // signup user
-export const signupUser = async (req: Request, res: Response) => {
+export const signupUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const { email, password } = req.body;
 
   try {
