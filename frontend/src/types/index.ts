@@ -33,4 +33,4 @@ export enum AuthKind {
 
 export type AuthAction =
   | { type: AuthKind.LOGIN; payload: IUser }
-  | { type: AuthKind.LOGOUT; payload: IUser };
+  | { type: AuthKind.LOGOUT };

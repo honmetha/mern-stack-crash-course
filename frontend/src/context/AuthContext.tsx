@@ -26,7 +26,7 @@ export const authReducer = (
     case AuthKind.LOGIN:
       return { user: action.payload };
     case AuthKind.LOGOUT:
-      return { user: action.payload };
+      return { user: null };
     default:
       return state;
   }
