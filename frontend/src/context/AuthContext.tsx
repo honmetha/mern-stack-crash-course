@@ -35,6 +35,14 @@ export const authReducer = (
 export const AuthContextProvider = ({ children }: IAuthContextProvider) => {
   const [state, dispatch] = React.useReducer(authReducer, { user: null });
 
+  React.useEffect(() => {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      dispatch({ type: AuthKind.LOGIN, payload: JSON.parse(user) });
+    }
+  }, []);
+
   console.log("AuthContext state: ", state);
 
   return (
