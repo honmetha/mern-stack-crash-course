@@ -1,4 +1,5 @@
 import express from "express";
+
 import {
   createWorkout,
   getWorkouts,
@@ -6,8 +7,12 @@ import {
   deleteWorkout,
   updateWorkout,
 } from "../controllers/workoutController";
+import requireAuth from "../middleware/requireAuth";
 
 const router = express.Router();
+
+// require auth for all workout routes
+router.use(requireAuth);
 
 // GET all workouts
 router.get("/", getWorkouts);
