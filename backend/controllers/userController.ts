@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { RequestHandler } from "express";
 import jwt = require("jsonwebtoken");
 
 import User from "../models/userModel";
@@ -8,7 +8,7 @@ const createToken = (_id: string) => {
 };
 
 // login user
-export const loginUser = async (req: Request, res: Response): Promise<void> => {
+export const loginUser: RequestHandler = async (req, res): Promise<void> => {
   const { email, password } = req.body;
 
   try {
@@ -24,10 +24,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
 };
 
 // signup user
-export const signupUser = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+export const signupUser: RequestHandler = async (req, res): Promise<void> => {
   const { email, password } = req.body;
 
   try {

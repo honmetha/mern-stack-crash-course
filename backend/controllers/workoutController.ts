@@ -1,17 +1,17 @@
-import { Request, Response } from "express";
+import { RequestHandler } from "express";
 import mongoose from "mongoose";
 
 import Workout from "../models/workoutModel";
 
 // get all workouts
-export const getWorkouts = async (req: Request, res: Response) => {
+export const getWorkouts: RequestHandler = async (req, res) => {
   const workouts = await Workout.find({}).sort({ createdAt: -1 });
 
   res.status(200).json(workouts);
 };
 
 // get a single workout
-export const getWorkout = async (req: Request, res: Response) => {
+export const getWorkout: RequestHandler = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -28,7 +28,7 @@ export const getWorkout = async (req: Request, res: Response) => {
 };
 
 // create new workout
-export const createWorkout = async (req: Request, res: Response) => {
+export const createWorkout: RequestHandler = async (req, res) => {
   const { title, load, reps } = req.body;
 
   let emptyFields: string[] = [];
@@ -58,7 +58,7 @@ export const createWorkout = async (req: Request, res: Response) => {
 };
 
 // delete a workout
-export const deleteWorkout = async (req: Request, res: Response) => {
+export const deleteWorkout: RequestHandler = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -75,7 +75,7 @@ export const deleteWorkout = async (req: Request, res: Response) => {
 };
 
 // update a workout
-export const updateWorkout = async (req: Request, res: Response) => {
+export const updateWorkout: RequestHandler = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {

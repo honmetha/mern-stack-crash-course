@@ -2,17 +2,7 @@ import mongoose, { Schema, Model } from "mongoose";
 import bcrypt from "bcrypt";
 import validator from "validator";
 
-interface IUserSchema {
-  email: {
-    type: string;
-    required: boolean;
-    unique: boolean;
-  };
-  password: {
-    type: string;
-    required: boolean;
-  };
-}
+import { IUserSchema } from "../@types/index";
 
 interface IUser {
   email: string;

@@ -3,6 +3,10 @@ import jwt from "jsonwebtoken";
 
 import User from "../models/userModel";
 
+interface JwtPayload {
+  _id: string;
+}
+
 const requireAuth: RequestHandler = async (req, res, next) => {
   // verify authentication
   const { authorization } = req.headers;
@@ -14,7 +18,10 @@ const requireAuth: RequestHandler = async (req, res, next) => {
   const token = authorization.split(" ")[1];
 
   try {
-    const { _id } = jwt.verify(token, process.env.SECRET);
+    const { _id } = jwt.verify(
+      token,
+      process.env.SECRET as string
+    ) as JwtPayload;
 
     req.user = await User.findOne({ _id }).select("_id");
     next();
