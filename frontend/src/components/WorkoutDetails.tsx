@@ -4,6 +4,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { IWorkout } from "../types";
 import { WorkoutKind } from "../types/index";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 interface IWorkoutDetails {
   workout: IWorkout;
@@ -11,10 +12,16 @@ interface IWorkoutDetails {
 
 const WorkoutDetails = ({ workout }: IWorkoutDetails) => {
   const { dispatch } = useWorkoutsContext();
+  const { user } = useAuthContext();
 
   const handleClick = async () => {
+    if (!user) return;
+
     const response = await fetch("/api/workouts/" + workout._id, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const json = await response.json();
 
