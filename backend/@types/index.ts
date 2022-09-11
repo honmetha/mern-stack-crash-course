@@ -8,4 +8,7 @@ export interface IUserSchema {
     type: string;
     required: boolean;
   };
+  _id: {
+    type: string;
+  };
 }
